@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <title>포춘미션 · 오늘의 작은 실천</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="포춘미션 처음으로"><span class="brand-mark" aria-hidden="true">✳</span> FORTUNE MISSION</a>
+    <span class="header-note">나를 알아가는 작은 실천</span>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">오늘의 운세, 오늘의 미션</p>
+      <h1 id="page-title">오늘의 나에게<br>작은 방향을 건네세요.</h1>
+      <p class="intro-copy">태어난 날의 사주와 오행을 바탕으로<br>오늘 실천할 수 있는 세 가지 미션을 전해드려요.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="input-card" aria-labelledby="input-title">
+        <div class="section-heading"><span class="step">01</span><h2 id="input-title">나의 정보</h2></div>
+        <p class="section-copy">한국 출생 · 양력 기준으로 입력해주세요.</p>
+        <form id="fortune-form">
+          <label for="birth-date">생년월일 <span>양력</span></label>
+          <input id="birth-date" name="birthDate" type="date" required>
+          <label for="birth-time">태어난 시간</label>
+          <input id="birth-time" name="birthTime" type="time" required>
+          <label for="gender">성별</label>
+          <select id="gender" name="gender" required>
+            <option value="FEMALE">여성</option>
+            <option value="MALE">남성</option>
+          </select>
+          <button id="generate-button" class="primary-button" type="submit"><span>오늘의 미션 받기</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <p id="loading-message" class="status" role="status" hidden>운세와 미션을 만들고 있어요. 첫 요청은 모델을 불러오는 데 시간이 걸릴 수 있어요.</p>
+        <p id="error-message" class="error" role="alert" hidden></p>
+        <p class="input-note">입력 정보와 결과는 별도로 저장하지 않습니다.</p>
+      </section>
+
+      <section class="result-card" aria-labelledby="result-title" aria-busy="false">
+        <div class="section-heading"><span class="step">02</span><h2 id="result-title">오늘의 포춘미션</h2></div>
+        <div id="empty-result" class="empty-result">
+          <div class="fortune-symbol" aria-hidden="true">✳</div>
+          <h3>어떤 하루를 만들어볼까요?</h3>
+          <p>정보를 입력하면 나의 사주와<br>오늘의 운세, 세 가지 미션이 나타납니다.</p>
+        </div>
+        <div id="fortune-result" hidden>
+          <p id="result-date" class="result-date"></p>
+          <div id="pillars" class="pillars" aria-label="나의 사주"></div>
+          <div id="elements" class="elements" aria-label="오행 개수"></div>
+          <div class="summary-block"><h3>오늘을 위한 한마디</h3><p id="summary"></p></div>
+          <div class="quest-heading"><h3>오늘의 세 가지 미션</h3><span id="quest-count">0 / 3 완료</span></div>
+          <ul id="quests" class="quests"></ul>
+          <div class="export-actions">
+            <button id="copy-button" type="button">답변 복사</button>
+            <button id="download-button" type="button">텍스트 다운로드 ↓</button>
+          </div>
+          <p id="export-status" class="status" role="status"></p>
+        </div>
+      </section>
+    </div>
+    <p class="footnote">운세는 일상 속 작은 실천을 위한 참고로 즐겨주세요.</p>
+  </main>
+  <footer><span>FORTUNE MISSION</span><span>작은 실천으로 채우는 오늘.</span></footer>
+</body>
+</html>
